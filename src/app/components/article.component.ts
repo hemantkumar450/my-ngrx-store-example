@@ -17,6 +17,10 @@ export class ArticleComponent {
 		this.articles = this.store.select(articleReducer.getArticles);
 	}
 
+	addTutorial(id, title, category) {
+		this.store.dispatch(new fromActions.AddArticle([{ id: id, title: title, category: category }]))
+	}
+
 	showJavaArticles() {
 		this.store.dispatch(new fromActions.JavaArticlesAction());
 	}
