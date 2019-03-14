@@ -1,9 +1,29 @@
+<!-- 
+<div  *ngIf="articles">
+   <ul>
+      <li *ngFor="let article of articles | async">
+         {{article.id}} - {{article.title}} - {{article.category}}
+      </li>
+   </ul>
+</div> -->
+
 <button (click)="showJavaArticles()">Java Articles</button>
 <button (click)="showAngularArticles()">Angular Articles</button>
 <button (click)="showFavoriteArticles()">Favorite Articles</button>
-<ul>
-   <li *ngFor="let article of articles | async">
-        {{article.id}} - {{article.title}} - {{article.category}}   
-   </li>
-</ul> 
-<div></div>
+
+<div class="right" *ngIf="articles">
+   <h3>Article</h3>
+   <ul>
+      <li *ngFor="let article of articles | async">
+         {{article.id}} - {{article.title}} - {{article.category}}
+      </li>
+   </ul>
+</div>
+
+<div class="left">
+   <input type="text" placeholder="id" #id>
+   <input type="text" placeholder="title" #title>
+   <input type="text" placeholder="category" #category>
+
+   <button (click)="addTutorial(id.value,title.value,category.value)">Add a Article</button>
+</div>
